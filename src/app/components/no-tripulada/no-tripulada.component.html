@@ -1,0 +1,31 @@
+<h3>Nave No Tripulada</h3>
+<p>
+  Como su propio nombre indica, se trata de un cohete autopropulsado que sirve para lanzar una carga útil al espacio, <br>
+   normalmente un satélite artificial, una sonda o una nave tripulada.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Creador</th>
+      <th>Nombre</th>
+      <th>Peso</th>
+      <th>Empuje</th>
+      <th>Potencia</th>
+      <th>Fecha Actividad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataList">
+      <td>{{ item.creador }}</td>
+      <td>{{ item.nombre }}</td>
+      <td>{{ item.peso }}</td>
+      <td>{{ item.empuje }}</td>
+      <td>{{ item.potencia }}</td>
+      <td>{{ item.fechaActividad }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<button (click)="agregarNave()" mat-raised-button color="primary">Agregar nueva nave</button>
+<button (click)="volver()" mat-raised-button color="accent" type="submit">Volver</button>

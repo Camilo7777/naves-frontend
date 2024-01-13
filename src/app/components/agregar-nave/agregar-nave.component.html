@@ -1,0 +1,53 @@
+<form *ngIf="vehiculoForm" [formGroup]="vehiculoForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input [(ngModel)] = "nave.descripcion" name = "descripcion" matInput placeholder="Descripción" formControlName="descripcion" />
+    <mat-error *ngIf="vehiculoForm.get('descripcion')?.hasError('required')">Descripción es obligatoria</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)] = "nave.creador" name = "creador" matInput placeholder="Creador" formControlName="creador" />
+    <mat-error *ngIf="vehiculoForm.get('creador')?.hasError('required')">Creador es obligatorio</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)] = "nave.nombre" name = "nombre" matInput placeholder="Nombre" formControlName="nombre" />
+    <mat-error *ngIf="vehiculoForm.get('nombre')?.hasError('required')">Nombre es obligatorio</mat-error>
+
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)] = "nave.peso" name = "peso" type="number" matInput placeholder="Peso" formControlName="peso" />
+    <mat-error *ngIf="vehiculoForm.get('peso')?.hasError('required')">Peso es obligatorio</mat-error>
+    <mat-error *ngIf="vehiculoForm.get('peso')?.hasError('min')">Peso debe ser mayor o igual a 0</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)] = "nave.empuje" name = "empuje" type="number" matInput placeholder="Empuje" formControlName="empuje" />
+    <mat-error *ngIf="vehiculoForm.get('empuje')?.hasError('required')">Empuje es obligatorio</mat-error>
+    <mat-error *ngIf="vehiculoForm.get('empuje')?.hasError('min')">Empuje debe ser mayor o igual a 0</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)] = "nave.potencia" name = "potencia" type="number" matInput placeholder="Potencia" formControlName="potencia" />
+    <mat-error *ngIf="vehiculoForm.get('potencia')?.hasError('required')">Potencia es obligatoria</mat-error>
+    <mat-error *ngIf="vehiculoForm.get('potencia')?.hasError('min')">Potencia debe ser mayor o igual a 0</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)] = "nave.fechaActividad" name = "fechaActividad" matInput placeholder="Fecha de Actividad" formControlName="fechaActividad" />
+    <mat-error *ngIf="vehiculoForm.get('fechaActividad')?.hasError('required')">Fecha de Actividad es obligatoria</mat-error>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="opcSeleccionada ==1">
+    <input  [(ngModel)] = "nave.tipoCombustible" name = "tipoCombustible" matInput placeholder="Tipo de Combustible" formControlName="tipoCombustible" />
+    <mat-error *ngIf="vehiculoForm.get('tipoCombustible')?.hasError('required')">Tipo de Combustible es obligatorio</mat-error>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="opcSeleccionada ==2">
+    <input  [(ngModel)] = "nave.numeroTripulantes" name = "numeroTripulantes" matInput placeholder="Numero de tripulantes" formControlName="numeroTripulantes" />
+    <mat-error *ngIf="vehiculoForm.get('tipoCombustible')?.hasError('required')">Numero de tripulantes es obligatorio</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Guardar</button>
+  <button (click)="volver()" mat-raised-button color="accent" type="submit">Volver</button>
+</form>
